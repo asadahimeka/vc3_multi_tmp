@@ -1,0 +1,29 @@
+// out: false
+
+.icon(@w, @h, @bg) {
+  display: inline-block;
+  width: @w;
+  height: @h;
+}
+
+.icon(@w, @h, @bg) when (isstring(@bg)) {
+  background-image: url(@bg);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100%
+}
+
+.icon(@w, @h, @bg) when (iscolor(@bg)) {
+  background-color: @bg;
+}
+
+.icon-bg-color(@c) {
+  background-color: @c;
+}
+
+.icon-bg-url(@url) {
+  background-image: url(@url);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100%
+}
