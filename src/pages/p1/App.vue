@@ -2,13 +2,15 @@
   <div id="app">
     <el-container>
       <el-header>
-        Header
+        <p style="line-height:60px;">Header</p>
       </el-header>
       <el-main>
-        Main
+        <p v-for="i in 10" :key="i" style="">Main</p>
+
       </el-main>
       <el-footer>
-        Footer
+        <p style="line-height:60px;">Footer</p>
+
       </el-footer>
     </el-container>
   </div>

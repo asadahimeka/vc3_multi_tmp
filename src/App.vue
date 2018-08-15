@@ -2,9 +2,9 @@
   <div id="app" :class="$style.indexbg">
     <img src="./assets/img/icon-logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App" />
-    <p :class="$style.red">PageList</p>
+    <p :class="$style.list">PageList</p>
     <p v-for="p in pages" :class="$style.pages" :key="p">
-      <a :href="`${p}.html`">{{ p }}</a>
+      <a :href="`${p}.html`">{{ p }}.html</a>
     </p>
   </div>
 </template>
@@ -33,11 +33,16 @@ export default {
 </script>
 
 <style module>
-.indexbg{
+.indexbg {
   background: #fff !important;
 }
-.red {
+.indexbg > img {
+  margin: 20px;
+}
+.list {
+  margin: 30px;
   color: #f00;
+  font-size: 24px;
 }
 .pages {
   margin: 20px;
@@ -45,6 +50,9 @@ export default {
 }
 .pages a {
   color: #f50;
+  text-decoration: none !important;
+}
+.pages a:hover {
   text-decoration: underline !important;
 }
 </style>
