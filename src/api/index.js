@@ -6,27 +6,11 @@ import http from './http'
  * @param {{}} paras
  * @returns
  */
-export function _get(op, paras) {
-  return http.get('/service/ServiceHandler.ashx', {
+export function _req(op, paras) {
+  return http.get('/service', {
     params: {
       op,
       ...paras
     }
   })
-}
-
-/**
- *
- * @param {string} scode
- */
-export function getGoodsShelves(scode) {
-  return _get('WH_Huojia', { scode })
-}
-
-/**
- *
- * @param {string} scode
- */
-export function getGoodsAllocation(scode) {
-  return _get('WH_Huowei', { scode })
 }
