@@ -1,25 +1,27 @@
-const {isDev, pages, alias, workboxConfig} = require('./util')
+const { pages, aliases, workboxConfig } = require('./config')
 
 module.exports = {
-  baseUrl: isDev ? '/' : '',
+  baseUrl: process.env.NODE_ENV == 'development' ? '/' : '',
   // outputDir: undefined,
   // assetsDir: undefined,
   // runtimeCompiler: undefined,
   // parallel: undefined,
   pages,
   productionSourceMap: false,
+  /*
   devServer: {
     proxy: {
-      '/service': {
-        target: 'http://192.168.0.162:8094',
-        // secure: false,
-        changeOrigin: true
-        // pathRewrite: {
-        //   '^/api': ''
-        // }
+      '/api': {
+        target: 'http://localhost:5000',
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
       }
     }
   },
+  */
   css: {
     loaderOptions: {
       css: {
@@ -30,7 +32,7 @@ module.exports = {
   configureWebpack: config => {
     config.resolve.alias = {
       ...config.resolve.alias,
-      ...alias
+      ...aliases
     }
     if (process.env.NODE_ENV === 'production') {
       config.plugins.push(workboxConfig)

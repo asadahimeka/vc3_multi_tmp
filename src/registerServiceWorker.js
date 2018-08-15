@@ -10,10 +10,9 @@ if (process.env.NODE_ENV === 'production') {
       /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
     )
   )
-    if ('serviceWorker' in navigator &&
+  if ('serviceWorker' in navigator &&
       (window.location.protocol === 'https:' || isLocalhost)) {
-  window.addEventListener('load', () => {
-
+    window.addEventListener('load', () => {
       navigator.serviceWorker
         .register('/service-worker.js')
         .then(registration => {
@@ -27,7 +26,6 @@ if (process.env.NODE_ENV === 'production') {
           // registration failed :(
           console.log('ServiceWorker registration failed: ', err)
         })
-        })
-    }
-  
+    })
+  }
 }
